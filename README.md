@@ -46,6 +46,8 @@ Edit this document to include your answers after each question. Make sure to lea
 
 5. What is a component?
 
+    A component is the reuse of code from HTML, CSS or Javascript that is stored away from the main HTML/CSS/JS code.
+
 ### Git Set up
 
 * [x] Fork the project into your GitHub user account
