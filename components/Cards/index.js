@@ -13,9 +13,13 @@ const cardEntry = document.querySelector('.cards-container') //where we will app
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then(response => {
-    console.log(response.data)
+    console.log(response)
     // first i need to access the articles objects
-    const allArticles = response.data.articles
+    const javascriptArticles = response.data.articles.javascript
+    javascriptArticles.forEach(javascriptArticle => {
+        javascriptArticlePlacement = articleCard(javascriptArticle)
+        cardEntry.appendChild(javascriptArticlePlacement)
+    })
     
     // Use your function to create a card for each of the articles and add the card to the DOM.
   })
@@ -60,11 +64,11 @@ function articleCard(object){
   cardImgContainer.classList.add('img-container')
 
 //   set text content for our card
-//   cardHeadline.textContent = `${object.headline}`
-//   cardAuthorName.textContent = `${object.authorName}`
+  cardHeadline.textContent = `${object.headline}`
+  cardAuthorName.textContent = `${object.authorName}`
 
 //   set image url for author
-//   cardImg.src = object.authorPhoto
+  cardImg.src = object.authorPhoto
 
 //   EXPLICIT RETURN
   return cardDiv
