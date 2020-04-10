@@ -12,11 +12,13 @@ const tabEntry = document.querySelector('.topics')
 
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
     .then(response => {
-        console.log(response)
+        console.log(response.data.topics)
         const tabsOnSite = response.data.topics
         tabsOnSite.forEach(tabOnSite => {
-            const aNewTab = newTab(tabOnSite)
-            tabEntry.appendChild(newTab(aNewTab))
+             const tab = document.createElement('div')
+             tab.classList.add('tab')
+             tab.textContent = `${tabOnSite}`
+             tabEntry.appendChild(tab)
         })
     })
     .catch(error => {
@@ -25,16 +27,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/topics')
 
 
 
-function newTab(object) {
-    // instantiate elements
-    const tab = document.createElement('div')
-    // add class names
-    tab.classList.add('tab')
-    // set text content for our card
-    tab.textContent = `${object.topics}`
-    // EXPLICIT RETURN
-    return tab
-}
+
 
 
 

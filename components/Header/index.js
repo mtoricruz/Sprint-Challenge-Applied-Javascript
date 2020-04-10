@@ -32,6 +32,10 @@ function Header() {
   headerDiv.classList.add('header')
   headerDate.classList.add('date')
   headerTemp.classList.add('temp')
+  // add text content
+  headerDate.textContent = 'SMARCH 28, 2019'
+  headerTitle.textContent = 'Lambda Times'
+  headerDate.textContent = '98°'
   // EXPLICIT RETURN
   return headerDiv
 }
