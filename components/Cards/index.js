@@ -18,8 +18,8 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     const javascriptArticles = response.data.articles.javascript
     javascriptArticles.forEach(javascriptArticle => {
         // Use your function to create a card for each of the articles and add the card to the DOM.
-        javascriptArticlePlacement = articleCard(javascriptArticle)
-        cardEntry.appendChild(javascriptArticlePlacement)
+        javascriptArticlePlacement = articleCard(javascriptArticle) // assigned the articleCard function that's passing in each article in the javascript object to javascriptArticlePlacement
+        cardEntry.appendChild(javascriptArticlePlacement) // pushing javascriptArticlePlacement to the dom by appending it to the proper entry point of cardEntry.
     })
 
     const bootstrapArticles = response.data.articles.bootstrap
