@@ -12,7 +12,7 @@ const tabEntry = document.querySelector('.topics')
 
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
     .then(response => {
-        console.log(response.data.topics)
+        console.log(response.data)
         const tabsOnSite = response.data.topics
         tabsOnSite.forEach(tabOnSite => {
              const tab = document.createElement('div')
