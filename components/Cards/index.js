@@ -6,7 +6,7 @@
 //
 //
 
-const cardEntry = document.querySelector('.cards-container') //where we will append each article
+const cardEntry = document.querySelector('.cards-container') // where we will append each article
 
 // Send an HTTP GET request to the following address: https://lambda-times-backend.herokuapp.com/articles
 // Study the response data you get back, closely.
@@ -14,14 +14,38 @@ const cardEntry = document.querySelector('.cards-container') //where we will app
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then(response => {
     console.log(response)
-    // first i need to access the articles objects
+    // first i need to access the specific article objects to loop through their array.
     const javascriptArticles = response.data.articles.javascript
     javascriptArticles.forEach(javascriptArticle => {
+        // Use your function to create a card for each of the articles and add the card to the DOM.
         javascriptArticlePlacement = articleCard(javascriptArticle)
         cardEntry.appendChild(javascriptArticlePlacement)
     })
+
+    const bootstrapArticles = response.data.articles.bootstrap
+    bootstrapArticles.forEach(bootstrapArticle => {
+        bootstrapArticlePlacement = articleCard(bootstrapArticle)
+        cardEntry.appendChild(bootstrapArticlePlacement)
+    })
+
+    const technologyArticles = response.data.articles.technology
+    technologyArticles.forEach(technologyArticle => {
+        technologyArticlePlacesment = articleCard(technologyArticle)
+        cardEntry.appendChild(technologyArticlePlacesment)
+    })
+
+    const jqueryArticles = response.data.articles.jquery
+    jqueryArticles.forEach(jqueryArticle => {
+        jqueryArticlePlacement = articleCard(jqueryArticle)
+        cardEntry.appendChild(jqueryArticlePlacement)
+    })
+
+    const nodeArticles = response.data.articles.node
+    nodeArticles.forEach(nodeArticle => {
+        nodeArticlePlacement = articleCard(nodeArticle)
+        cardEntry.appendChild(nodeArticlePlacement)
+    })
     
-    // Use your function to create a card for each of the articles and add the card to the DOM.
   })
   .catch(error => {
     console.log(error)
